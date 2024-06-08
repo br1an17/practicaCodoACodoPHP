@@ -257,10 +257,10 @@ if(is_object($numero)){
   
 }
 
- $nombres = ["juan","marcos","martin","pedro","felipe","martin","pablo"];
+ $nombres = ["juan","marcos","martin","pedro","felipe","brian","pablo"];
 
 
- $apellido = ["juan","marcos","martin","pedro","felipe","martin","pablo"];
+ $apellido = ["juan","marcos","martin","pedro","felipe","brian","pablo"];
 
  echo $nombres[0];
 
