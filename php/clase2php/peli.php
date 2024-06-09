@@ -12,6 +12,14 @@
 //  echo "la imagen es: " .  $_POST['imagen'];
 
 
+$nombre=$_POST['nombre'];
+$descripcion=$_POST['descripcion'];
+$genero=$_POST['genero'];
+$director =$_POST['director'];
+$año =$_POST['año']; 
+$calificacion= $_POST['calificacion']; 
+$imagen=$_POST["imagen"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +32,14 @@
 </head>
 <body>
 <div class="card mb-3" style="width: 18rem;">
-  <img src=<?php echo $_POST["imagen"]  ?> class="card-img-top" alt="imagen de shanelle">
+  <img src=<?php echo $imagen  ?> class="card-img-top" alt="imagen de shanelle">
   <div class="card-body">
-    <h5 class="card-title"><?php echo $_POST['nombre'] ?></h5>
-    <p class="card-text"><?php echo $_POST['descripcion'] ?></p>
-    <p class="card-text"><small class="text-body-secondary"><?php echo "genero : " .$_POST['genero'] ?></small></p>
-    <p class="card-text"><small class="text-body-secondary"><?php echo "director : " .$_POST['director'] ?></small></p>
-    <p class="card-text"><small class="text-body-secondary"><?php echo "año : " .$_POST['año'] ?></small></p>
-    <p class="card-text"><small class="text-body-secondary"><?php echo "La calificacion es : " . $_POST['calificacion'] ?></small></p>
+    <h5 class="card-title"><?php echo $nombre ?></h5>
+    <p class="card-text"><?php echo $descripcion ?></p>
+    <p class="card-text"><small class="text-body-secondary"><?php echo "genero : " .$genero ?></small></p>
+    <p class="card-text"><small class="text-body-secondary"><?php echo "director : " .$director ?></small></p>
+    <p class="card-text"><small class="text-body-secondary"><?php echo "año : " .$año ?></small></p>
+    <p class="card-text"><small class="text-body-secondary"><?php echo "La calificacion es : " . $calificacion ?></small></p>
   </div>
 </div>
 <br>

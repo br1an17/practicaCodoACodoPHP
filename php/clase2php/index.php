@@ -116,7 +116,7 @@ echo "<h1>Hola soy un h1 </h1>";
 
     </form>
 
-    <div class="container mt-5">
+    <div class="container mt-5" style="width:25rem; border:solid red 3px;">
         <form action="peli.php" method="post">
             <div class="mb-3">
                 <label for="" class="form-label">Nombre</label>
