@@ -159,8 +159,8 @@ echo "<h1>Hola soy un h1 </h1>";
                 <input class="form-control" type="text" name="director" id="movieDirector" placeholder="Ingrese el nombre del director" aria-label="default input example">
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Ingrese una imagen</label>
-                <input class="form-control" type="file" name="imagen" id="formFile">
+                <label for="imageURL" class="form-label">URL de la Imagen</label>
+                <input class="form-control" type="url" name="imagen" id="imageURL" placeholder="Ingrese la URL de la imagen" required>
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3">enviar</button>
