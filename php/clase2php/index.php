@@ -66,9 +66,11 @@ echo "<h1>Hola soy un h1 </h1>";
             color: #ffd700;
             cursor: pointer;
         }
+
         .star-rating .fa-star {
             margin-right: 0.25rem;
         }
+
         .star-rating .text-secondary {
             color: #d1d1d1;
         }
@@ -84,30 +86,18 @@ echo "<h1>Hola soy un h1 </h1>";
     <h3>Hola formulario</h3>
 
     <form action="datos.php" method="post">
-
         <label for="">Nombre</label>
-
         <input type="text" name="nombre">
-
         <label for="">edad</label>
-
         <input type="number" name="edad">
-
         <label for="">Tipo Usuario</label>
-
         <input type="text" name="tiposuario">
-
-
         <select name="usuario_select" id="">
-
             <option value="premium">comun</option>
             <option value="premium">premium</option>
             <option value="premium">platino</option>
 
         </select>
-
-
-
         <label for="">Apellido</label>
 
         <input type="text" name="apellido">
@@ -127,9 +117,9 @@ echo "<h1>Hola soy un h1 </h1>";
     </form>
 
     <div class="container mt-5">
-        <form action="datos.php" method="post">
+        <form action="peli.php" method="post">
             <div class="mb-3">
-                <label for="movieName" class="form-label">Nombre</label>
+                <label for="" class="form-label">Nombre</label>
                 <input class="form-control" type="text" name="nombre" id="movieName" placeholder="Ingrese el nombre de la película" aria-label="default input example">
             </div>
             <div class="mb-3">
@@ -173,7 +163,7 @@ echo "<h1>Hola soy un h1 </h1>";
                 <input class="form-control" type="file" name="imagen" id="formFile">
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Guardar Película</button>
+                <button type="submit" class="btn btn-primary mb-3">enviar</button>
             </div>
         </form>
     </div>
@@ -219,4 +209,5 @@ echo "<h1>Hola soy un h1 </h1>";
         });
     </script>
 </body>
+
 </html>
