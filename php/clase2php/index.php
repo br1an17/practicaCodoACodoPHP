@@ -57,6 +57,22 @@ echo "<h1>Hola soy un h1 </h1>";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .star-rating {
+            font-size: 2rem;
+            color: #ffd700;
+            cursor: pointer;
+        }
+        .star-rating .fa-star {
+            margin-right: 0.25rem;
+        }
+        .star-rating .text-secondary {
+            color: #d1d1d1;
+        }
+    </style>
 </head>
 
 <body>
@@ -110,54 +126,97 @@ echo "<h1>Hola soy un h1 </h1>";
 
     </form>
 
-    <form action="datos.php" method="post">
-        <label for="">
-            Genero
+    <div class="container mt-5">
+        <form action="datos.php" method="post">
+            <div class="mb-3">
+                <label for="movieName" class="form-label">Nombre</label>
+                <input class="form-control" type="text" name="nombre" id="movieName" placeholder="Ingrese el nombre de la película" aria-label="default input example">
+            </div>
+            <div class="mb-3">
+                <label for="movieDescription" class="form-label">Descripción</label>
+                <textarea class="form-control" name="descripcion" id="movieDescription" rows="3" placeholder="Ingrese la descripción de la película"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="movieGenre" class="form-label">Género</label>
+                <select class="form-select" name="genero" id="movieGenre" aria-label="Default select example">
+                    <option selected>Seleccione los géneros</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Suspenso">Suspenso</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Ciencia Ficción">Ciencia Ficción</option>
+                    <option value="Infantil">Infantil</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="movieRating" class="form-label">Calificación</label>
+                <div class="star-rating">
+                    <i class="fas fa-star text-secondary" data-index="0"></i>
+                    <i class="fas fa-star text-secondary" data-index="1"></i>
+                    <i class="fas fa-star text-secondary" data-index="2"></i>
+                    <i class="fas fa-star text-secondary" data-index="3"></i>
+                    <i class="fas fa-star text-secondary" data-index="4"></i>
+                </div>
+                <input type="hidden" name="calificacion" id="movieRating">
+            </div>
+            <div class="mb-3">
+                <label for="movieYear" class="form-label">Año</label>
+                <input class="form-control" type="number" name="año" id="movieYear" placeholder="Ingrese el año" aria-label="default input example">
+            </div>
+            <div class="mb-3">
+                <label for="movieDirector" class="form-label">Director</label>
+                <input class="form-control" type="text" name="director" id="movieDirector" placeholder="Ingrese el nombre del director" aria-label="default input example">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ingrese una imagen</label>
+                <input class="form-control" type="file" name="imagen" id="formFile">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Guardar Película</button>
+            </div>
+        </form>
+    </div>
 
-            <input type="text">
-        </label>
-        <label for="">
-            Calificacion
-            <input type="number">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const stars = document.querySelectorAll('.star-rating .fa-star');
+            const ratingInput = document.getElementById('movieRating');
+            let currentRating = -1;
 
-        </label>
-        <label for="">
-            Año
+            stars.forEach(star => {
+                star.addEventListener('mouseover', () => {
+                    resetStars();
+                    highlightStars(star.getAttribute('data-index'));
+                });
 
-            <input type="number">
-        </label>
-        <label for="">
-            Director
-            <input type="text">
+                star.addEventListener('mouseout', () => {
+                    resetStars();
+                    if (currentRating != -1) {
+                        highlightStars(currentRating);
+                    }
+                });
 
-        </label>
+                star.addEventListener('click', () => {
+                    currentRating = star.getAttribute('data-index');
+                    ratingInput.value = parseInt(currentRating) + 1;
+                });
+            });
 
-        <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
-        <input class="form-control" type="text" placeholder="ingrese el nombre de la pelicula" aria-label="default input example">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ingrese la descripcion de la pelicula"></textarea>
-</div>
-        <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Genero</label>
-        <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
-</div>
-        <div class="mb-3">
-        <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
-</div>
-        <div class="mb-3">
-        <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
-</div>
-<div class="mb-3">
-  <label for="formFile" class="form-label">Default file input example</label>
-  <input class="form-control" type="file" id="formFile">
-</div>
-<div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-  </div>
-    </form>
+            function resetStars() {
+                stars.forEach(star => {
+                    star.classList.remove('text-warning');
+                    star.classList.add('text-secondary');
+                });
+            }
+
+            function highlightStars(index) {
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.remove('text-secondary');
+                    stars[i].classList.add('text-warning');
+                }
+            }
+        });
+    </script>
 </body>
-
 </html>
